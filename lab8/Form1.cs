@@ -24,7 +24,7 @@ namespace lab8
             a1.doAiler();
             List<double> a1Results = a1.uResults;
 
-            Ailer a2 = new Ailer(t0, T, u0, Convert.ToDouble(comboBox1.SelectedItem.ToString()) / 3);
+            Ailer a2 = new Ailer(t0, T, u0, Convert.ToDouble(comboBox1.Items[2].ToString()));
             a2.doAiler();
             List<double> a2Results = a2.uResults;
 
@@ -51,7 +51,7 @@ namespace lab8
             Console.WriteLine(a2Results.Count);
             for (int i = 0; i < a1Results.Count; i++)
             {
-                a2diff += (a2Results[i + o] - a1Results[i]).ToString() + "\n"; //КАКОГО ХУЯ
+                a2diff += (a2Results[i + o] - a1Results[i]).ToString() + "\n";
                 o++;
             }
 
@@ -90,7 +90,7 @@ namespace lab8
             pred1.doPredictor();
             List<double> pred1Results = pred1.uResults;
 
-            predictor pred2 = new predictor(t0, T, u0, Convert.ToDouble(comboBox1.SelectedItem.ToString()) / 3);
+            predictor pred2 = new predictor(t0, T, u0, Convert.ToDouble(comboBox1.Items[2].ToString()));
             pred2.doPredictor();
             List<double> pred2Results = pred2.uResults;
             string pred1diff = ""; string pred2diff = "";
@@ -104,7 +104,7 @@ namespace lab8
             for (int i = 0; i < pred1Results.Count; i++)
             {
                 pred2diff += (pred2Results[i + o] - pred1Results[i]).ToString() + "\n";
-                o += 2;
+                o++;
             }
 
             Path = $"difference1Predictor.txt";
@@ -137,7 +137,7 @@ namespace lab8
             run1.doRunge();
             List<double> run1Results = run1.uResults;
 
-            Runge run2 = new Runge(t0, T, u0, Convert.ToDouble(comboBox1.SelectedItem.ToString()) / 3);
+            Runge run2 = new Runge(t0, T, u0, Convert.ToDouble(comboBox1.Items[2].ToString()));
             run2.doRunge();
             List<double> run2Results = run2.uResults;
             string run1diff = ""; string run2diff = "";
@@ -151,7 +151,7 @@ namespace lab8
             for (int i = 0; i < run1Results.Count; i++)
             {
                 run2diff += (run2Results[i + o] - run1Results[i]).ToString() + "\n";
-                o += 2;
+                o++;
             }
 
             Path = $"difference1Runge.txt";
@@ -183,11 +183,11 @@ namespace lab8
             List<double> rkResults = rk.uResults;
 
             RungeKutt4 rk1 = new RungeKutt4(t0, T, u0, Convert.ToDouble(comboBox1.Items[1].ToString()));
-            run1.doRunge();
+            rk1.doRunge();
             List<double> rk1Results = rk1.uResults;
 
-            RungeKutt4 rk2 = new RungeKutt4(t0, T, u0, Convert.ToDouble(comboBox1.SelectedItem.ToString()) / 3);
-            run2.doRunge();
+            RungeKutt4 rk2 = new RungeKutt4(t0, T, u0, Convert.ToDouble(comboBox1.Items[2].ToString()));
+            rk2.doRunge();
             List<double> rk2Results = rk2.uResults;
             string rk1diff = ""; string rk2diff = "";
             o = 0;
@@ -200,7 +200,7 @@ namespace lab8
             for (int i = 0; i < rk1Results.Count; i++)
             {
                 rk2diff += (rk2Results[i + o] - rk1Results[i]).ToString() + "\n";
-                o += 2;
+                o++;
             }
 
             Path = $"difference1RungeKutt.txt";
