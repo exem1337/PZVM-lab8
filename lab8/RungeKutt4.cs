@@ -40,8 +40,8 @@ namespace lab8
             SaveFile3.Close();
         }
 
-        private double mainFunc(double t, double u) => Convert.ToDouble(Math.Exp(3 * t) + 3 * (u - 1));
-        private double accurateFunction(double t) => Convert.ToDouble(t * Math.Exp(3 * t) + 1);
+        private double mainFunc(double t, double u) => -2 * u - 3 * t + 2;
+        private double accurateFunction(double t) => 1.75 - 1.5 * t - 1.75 * Math.Exp(-2 * t);
 
     }
 }
